@@ -3,7 +3,6 @@ import Layout from '@/views/Layout.vue';
 import Login from '@/views/Auth/Login.vue';
 import Registro from '@/components/Content/Registro.vue';
 import ReservaForm from '@/components/Auth/ReservaForm.vue';
-import EditForm from '@/components/Auth/EditForm.vue';
 import ConfirmCuenta from '@/components/Content/ConfirmCuenta.vue';
 import { isAuthenticated } from '@/auth/auth';
 import ReservaDetail from '@/components/Content/ReservaDetail.vue';
@@ -20,12 +19,6 @@ const routes = [
         path: 'reserva',
         name: 'reserva',
         component: ReservaForm,
-        meta: { requiresAuth: true }
-      },
-      {
-        path: 'editForm',
-        name: 'editForm',
-        component: EditForm,
         meta: { requiresAuth: true }
       },
       {

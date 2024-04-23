@@ -2,10 +2,10 @@
   <div v-if="showSuccessToast" class="fixed top-0 right-0 p-4 mt-4 mr-4 bg-green-500 text-white rounded">
         Cuenta creada exitosamente
     </div>
-  <div class="flex justify-center items-center h-screen w-screen">
+  <div class="flex justify-center items-center mt-10 w-screen">
     <div class="rounded-lg shadow-lg bg-gray-800 border-gray-700 p-4">
       <form class="p-4" @submit.prevent="handleRegister">
-        <h5 class="text-lg p-4 mb-2 mt-2 font-medium text-white">Registrar usuario</h5>
+        <h5 class="text-lg font-medium text-white">Registrar usuario</h5>
         <div>
           <label for="correoUsuario" class="block mt-2 mb-2 text-lg font-medium text-white">Correo electrónico</label>
           <input 

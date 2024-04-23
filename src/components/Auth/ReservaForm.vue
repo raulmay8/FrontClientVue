@@ -64,10 +64,8 @@ const verDetalles = (token : string) => {
 
 const deleteReserva = async (token: string) => {
   try {
-    // Eliminar la reserva usando axios
     await axios.delete(`http://localhost:4000/reserva/${token}`);
     
-    // Después de eliminar exitosamente la reserva, actualizamos la lista de reservas
     await fetchReservas();
     showSuccessToast.value = true;
     setTimeout(() => {
@@ -81,9 +79,7 @@ const prepareDelete = (token: string) => {
   tokenToDelete.value = token;
   const reserva = reservas.value.find(r => r.token === token);
   
-  // Verificar si la reserva y el cliente existen
   if (reserva && reserva.cliente) {
-    // Verificar si el nombre del cliente existe
     const nombreCliente = reserva.cliente.nameCliente;
     if (nombreCliente) {
       deleteMessage.value = `¿Estás seguro de que deseas eliminar la reserva de ${nombreCliente}?`;
@@ -103,7 +99,7 @@ const handleModalClose = () => {
 
 const handleModalConfirm = () => {
   deleteReserva(tokenToDelete.value);
-  showModal.value = false; // Ocultar el modal después de la confirmación
+  showModal.value = false;
 };
 
 
@@ -122,21 +118,15 @@ const handleModalConfirm = () => {
       </template>
     </Modal>
 
-    <div v-if="showSuccessToast" class="fixed top-0 right-0 p-4 mt-4 mr-4 bg-green-500 text-white rounded">
+    <div v-if="showSuccessToast" class="fixed top-0 right-0 p-4 mt-4 ml-8 bg-green-500 text-white rounded">
       ¡Reserva eliminada con éxito!
     </div>
     
     <table class=" text-lg text-white bg-gray-800 rounded-lg">
       <thead class="">
         <tr>
-          <th scope="col" class="px-4 py-2">
-            Nombre Cliente
-          </th>
           <th scope="col" class="px-4 py-2 ">
             Correo Cliente
-          </th>
-          <th scope="col" class="px-4 py-2 ">
-            Fecha Llegada
           </th>
           <th scope="col" class="px-4 py-2">
             Hora Llegada
@@ -154,9 +144,7 @@ const handleModalConfirm = () => {
       </thead>
       <tbody>
         <tr v-for="reserva in reservas" :key="reserva.token">
-          <td class="px-4 py-2">{{ reserva.cliente.nameCliente }}</td>
           <td class="px-4 py-2">{{ reserva.cliente.correoCliente }}</td>
-          <td class="px-4 py-2">{{ reserva.cliente.fechaLlegada }}</td>
           <td class="px-4 py-2">{{ reserva.cliente.horaLlegada }}</td>
           <td class="px-4 py-2">{{ reserva.cliente.personas }}</td>
           <td class="px-4 py-2">{{ reserva.cenote.nameCenote }}</td>
@@ -164,8 +152,7 @@ const handleModalConfirm = () => {
             <button @click="verDetalles(reserva.token)" class="text-blue-500 hover:text-blue-700">
               Ver
             </button>
-            
-            <!-- Botón de eliminar -->
+
             <button @click="prepareDelete(reserva.token)" class="text-red-500 hover:text-red-700 ml-2">
               Eliminar
             </button>
@@ -177,7 +164,6 @@ const handleModalConfirm = () => {
 </template>
 
 <style scoped>
-  /* Estilos de margen y relleno para la tabla */
   table {
     margin-left: auto;
     margin-right: auto;

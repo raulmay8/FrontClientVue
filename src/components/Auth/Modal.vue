@@ -28,12 +28,12 @@ const props = defineProps({
 const emit = defineEmits(['close', 'confirm']);
 
 const onClose = () => {
-  // Emitir un evento para indicar que se cerró el modal
+  
   emit('close');
 };
 
 const onConfirm = () => {
-  // Emitir un evento para indicar que se confirmó algo
+  
   emit('confirm');
 };
 </script>

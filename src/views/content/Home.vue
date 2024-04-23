@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-screen">
+  <div class="flex flex-col">
     <div class="flex flex-1">
       <div class="shadow-2xl m-1">
         <Sidebar />

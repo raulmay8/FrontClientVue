@@ -6,7 +6,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
     const idP = Number(route.params.id);
     const cenote = ref<any>(null);
-console.log(idP, cenote)
+    
 onMounted(async () => {
   try {
     cenote.value = await getCenoteById(idP); 
@@ -39,7 +39,6 @@ onMounted(async () => {
           </tr>
           <tr v-if="cenote">
             <td colspan="2">
-              <!-- Mostrar la imagen con tamaño pequeño -->
               <img :src="cenote.data.url" alt="Imagen del cenote" class="w-96 h-auto mb-4">
             </td>
           </tr>

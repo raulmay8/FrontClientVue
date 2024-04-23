@@ -73,7 +73,7 @@ const viewCenote = (cenoteId: number) => {
     <div v-if="showSuccessToast" id="toast-success" class="fixed top-0 right-0 p-4 mt-4 mr-4 bg-red-500 text-white rounded">
         Cenote eliminado exitosamente
     </div>
-    <div class="flex flex-col items-center justify-center h-screen">
+    <div class="flex flex-col items-center justify-center mt-10">
         <router-link to="cenote/crear" class="block text-center mb-4">
       <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Crear Nuevo Cenote</button>
     </router-link>
